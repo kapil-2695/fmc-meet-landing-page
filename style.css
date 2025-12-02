@@ -198,6 +198,7 @@ body {
 .cta-section {
     width: 100%;
     color: white;
+    width: 98.5dvw;
 }
 .cta__content-outer {
     display: grid;
@@ -229,7 +230,6 @@ body {
     }
     .features-section {
         padding-block-start: 3.5rem;
-        width: 100vw;
     }
     .features__img-banner {
         grid-template: 1fr / repeat(4, 1fr);
