@@ -1,0 +1,298 @@
+:root {
+    --clr-white: hsl(0, 0%, 100%);
+    --clr-black: hsl(0, 0%, 7%);
+
+    --clr-cyan-600: #4D96A9;
+    --clr-cyan-600-translucent: rgba(77, 151, 169, 0.9);
+    --clr-cyan-300: #8FE3F9;
+
+    --clr-purple-300: #D9B8FF;
+    --clr-purple-600: #855FB1;
+
+    --clr-slate-900: #28283D;
+    --clr-slate-600: #87879D;
+    --clr-slate-300: #D1D1DF;
+
+    --text-desktop-h1: normal normal 900 4rem/1.1 "Red Hat Display", sans-serif; 
+    --text-desktop-h2: normal normal 900 2.5rem/1.1 "Red Hat Display", sans-serif; 
+    --text-desktop-tag: normal normal 900 1rem/1.1 "Red Hat Display", sans-serif;
+    --text-desktop-para: normal normal 500 1.125rem/1.5 "Red Hat Display", sans-serif; 
+    --text-button: normal normal 900 1rem/1.5 "Red Hat Display", sans-serif; 
+    
+    --text-tablet-h1: normal normal 900 3rem/1.1 "Red Hat Display", sans-serif; 
+    --text-tablet-h2: normal normal 900 2.25rem/1.1 "Red Hat Display", sans-serif; 
+    --text-tablet-tag: normal normal 900 0.875rem/1.1 "Red Hat Display", sans-serif;
+    --text-tablet-para: normal normal 500 1rem/1.5 "Red Hat Display", sans-serif; 
+    
+    --text-mobile-h1: normal normal 900 2.5rem/1.1 "Red Hat Display", sans-serif; 
+    --text-mobile-h2: normal normal 900 2rem/1.1 "Red Hat Display", sans-serif;
+    --text-mobile-tag: normal normal 900 0.75rem/1.1 "Red Hat Display", sans-serif;
+
+    --dyn-spacing: clamp(0.5rem, 8vw, 2rem);
+}
+
+/* reset original css styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Red Hat Display", sans-serif;
+}
+
+button {
+    border: none;
+    border-radius: 1.8125rem;
+    padding: 1rem 2.5rem;
+    color: var(--clr-white);
+    font: var(--text-button);
+}
+
+img {
+    width: 100%; 
+    height: 100%;
+    object-fit: cover;
+}
+
+
+/* typography */
+/* mobile */
+h1     { font: var(--text-mobile-h1); }
+h2     { font: var(--text-mobile-h2); }
+.tag   { font: var(--text-mobile-tag); }
+.text  { font: var(--text-tablet-para); }
+
+@media screen and (min-width: 36rem) {
+    h1     { font: var(--text-tablet-h1); }
+    h2     { font: var(--text-tablet-h2); }
+    .tag   { font: var(--text-tablet-tag); }
+}
+
+@media screen and (min-width: 80rem) {
+    h1     { font: var(--text-desktop-h1); }
+    h2     { font: var(--text-desktop-h2); }
+    .tag   { font: var(--text-desktop-tag); }
+    .text  { font: var(--text-desktop-para); }
+}
+
+
+/* color schemes */
+/* if any */
+.btn-blue { background-color: var(--clr-cyan-600);  }
+.btn-blue:hover { background-color: #71C0D4;  }
+
+.btn-purple { background-color: var(--clr-purple-600);  }
+.btn-purple:hover { background-color: #B18BDD;  }
+
+.btn-highlight-blue { color: var(--clr-cyan-300); }
+.btn-highlight-purple { color: var(--clr-purple-300); }
+
+
+/* components */
+.curtain-pull {
+    display: grid;
+    justify-items: center;
+    font: var(--text-button);
+}
+.curtain-pull > .string {
+    height: 5rem;
+    width: 1px;
+    background: var(--clr-slate-300);
+}
+.curtain-pull > .number {
+    display: grid;
+    place-items: center;
+    border: 1px solid var(--clr-slate-300);
+    border-radius: 50%;
+    width: 3.5rem;
+    aspect-ratio: 1;
+    color: var(--clr-slate-600);
+    background-color: var(--clr-white);
+}
+
+
+/* layout design - mobile first */
+body {
+    display: grid;
+}
+
+.wrapper {
+    display: grid;
+    justify-items: center;
+    text-align: center;
+}
+
+.meet__header {
+    padding-block-start: 4rem;
+}
+
+
+/* hero section */
+.hero-section {
+    display: grid;
+    justify-items: center;
+    padding: 4rem 2rem 2rem;
+    grid-template-rows: clamp(10rem, 10rem + 30vw, 30rem) auto;
+    gap: 3rem;
+}
+.hero__img-desktop-wrapper {  /* hide the desktop split images */
+    display: none;
+}
+.hero__img-mobile-wrapper {
+    order: -1;
+    margin-inline: -2rem;  /* cancels the effect of 2rem padding to stretch out full */
+    height: 100%;
+}
+.hero__content {
+    display: grid;
+    justify-items: center;
+    gap: 1.5rem;
+    max-width: 28rem;
+    margin-inline: calc(var(--dyn-spacing) - 2rem);  /* corrects minor overflow on very small screens */
+}
+.hero__btns {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+}
+
+
+/* features section */
+.features-section {
+    display: grid;
+    gap: 4rem;
+    padding: 2rem var(--dyn-spacing) 4rem;
+    justify-items: center;
+}
+.features__content-wrapper {
+    display: grid;
+    justify-items: center;
+    gap: 4rem;
+    max-width: 70rem;
+}
+.features__img-banner {
+    display: grid;
+    grid-template: 1fr 1fr / 1fr 1fr;
+    gap: 1rem;
+}
+.features__img-banner > img {
+    border-radius: 0.5rem;
+}
+.features__content {
+    display: grid;
+    max-width: 31.5rem;
+}
+.features__heading {
+    margin-block-end: 2rem;
+}
+.features__tagline {
+    margin-block-end: 1rem;
+    color: var(--clr-cyan-600);
+    text-transform: uppercase;
+    letter-spacing: 0.25rem;
+    order: -1;
+}
+
+
+/* cta section */
+.cta-section {
+    width: 100%;
+    color: white;
+}
+.cta__content-outer {
+    display: grid;
+    justify-items: center;
+    padding: 4rem var(--dyn-spacing);
+    background-image: 
+        linear-gradient(var(--clr-cyan-600-translucent)), 
+        url(./assets/image-footer-mobile.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center top;
+}
+.cta__content-inner {
+    display: grid;
+    justify-items: center;
+    gap: 1.5rem;
+    max-width: 31.5rem;
+}
+.curtain-pull.cta {
+    margin-block-end: calc(-3.5rem / 2); /* pull circle half way down */
+}
+
+
+/* tablet version */
+@media screen and (min-width: 36rem) {
+    .hero-section {
+        gap: 4.5rem;
+        padding-block-end: 4rem;
+    }
+    .features-section {
+        padding-block-start: 3.5rem;
+        width: 100vw;
+    }
+    .features__img-banner {
+        grid-template: 1fr / repeat(4, 1fr);
+        gap: 1.5rem;
+    }
+    .cta__content-outer {
+        background-image: 
+            linear-gradient(var(--clr-cyan-600-translucent)), 
+            url(./assets/image-footer-tablet.jpg);
+    }
+}
+
+
+/* desktop version */
+@media screen and (min-width: 80rem) {
+    .hero-section {
+        display: flex;
+        justify-content: space-between;
+        gap: 0;
+        width: 100%;
+        padding-inline: 0;
+        overflow: hidden;
+        height: clamp(25rem, 10rem + 20vw, 35rem); 
+        /* dynamic height zooms surrounding images as screen size increases */
+    }
+    .hero__content {
+        align-self: center;
+    }
+    .hero__img-mobile-wrapper {  /* hide phone image elements */
+        display: none;
+    }
+    .hero__img-desktop-wrapper { /* unhide desktop image elements */
+        display: block;      
+    }
+    .hero__img-desktop-wrapper > img {
+        object-fit: cover;
+        width: auto;
+    }
+    .hero__img-left {
+        order: -1;
+        margin-inline-start: -2rem;
+    }
+    .hero__content { /* re-order. since content is at the top in html */
+        order: 0;
+    }
+    .hero__img-right {
+        order: 1;
+        margin-inline-end: -2rem;
+    }
+    .features__img-banner {
+        gap: 2rem;
+    }
+    .cta__content-outer {
+        padding: 7rem 5rem;
+        background-image: 
+            linear-gradient(var(--clr-cyan-600-translucent)), 
+            url(./assets/image-footer-desktop.jpg);
+    }
+    .cta__content-inner {
+        max-width: 70rem;
+        grid-template: auto / 2fr 2fr auto;
+        gap: 7rem;
+        align-items: start;
+        text-align: left;
+    }
+}
