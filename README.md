@@ -99,4 +99,3 @@ The use of dynamic spacing which reduced the margin on very small screens sizes 
 ## Acknowledgments
 
 - I want to thank CSS expert Kevin Powell for creating informative content on his YouTube channel which helped me a lot in perfecting the designs.
-Table of contents
