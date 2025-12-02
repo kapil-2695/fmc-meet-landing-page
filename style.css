@@ -45,7 +45,10 @@ button {
     padding: 1rem 2.5rem;
     color: var(--clr-white);
     font: var(--text-button);
+    transition: background-color 250ms ease-in-out;
+    cursor: pointer;
 }
+
 
 img {
     width: 100%; 
